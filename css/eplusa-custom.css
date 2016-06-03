@@ -21,12 +21,12 @@ body {
 }
 
 body p {
-		padding: 20px;
+		padding: 10px 0  10px 0;
 	}
 
 /* Navigation bar */
 .nav {
-    padding-left: 50px;
+    padding-left: 10px;
 	padding-top: 15px;
     margin-bottom: 0;
     list-style: none;
@@ -85,6 +85,35 @@ body p {
 .img-hover:hover {
     opacity: 0.8;
 }
+
+img.align-right { 
+	float: right; 
+	margin-left: 20px;
+}
+	
+ul li {
+	list-style: none;
+}
+
+.panel.svc {
+	padding: 20px;
+	line-height: 300%;
+}
+
+form role {
+	padding-bottom: 20px;
+}
+
+.center {
+	 margin: auto;
+	
+}
+
+.centercar {
+	 margin: auto;
+	 width: 40%; 
+}
+
 
 /* Home Page Carousel */
 
