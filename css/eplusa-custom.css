@@ -106,7 +106,6 @@ form role {
 
 .center {
 	 margin: auto;
-	
 }
 
 .centercar {
@@ -114,6 +113,10 @@ form role {
 	 width: 40%; 
 }
 
+.centercarft {
+	 margin: auto;
+	 width: 50%; 
+}
 
 /* Home Page Carousel */
 
