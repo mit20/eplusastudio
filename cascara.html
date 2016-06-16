@@ -110,21 +110,54 @@ function MM_swapImage() { //v3.0
     <!-- Projects Row 1 -->
         <div class="row">
             <div class="col-md-4 img-portfolio">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-hover" src="images/cascara2.jpg" alt="Cascara 2">
-                </a>    
+                    <img class="img-responsive img-hover"  id="myImg" src="images/cascara2.jpg" alt="La Cascara TV">
              </div>
+            
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+    
+      <!-- The Close Button -->
+      <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+    
+      <!-- Modal Content (The Image) -->
+      <img class="modal-content" id="img01">
+    
+      <!-- Modal Caption (Image Text) -->
+      <div id="caption"></div>
+    </div>
+
             <div class="col-md-4 img-portfolio">
-                <a href="portfolio-item.html">
-                   <img class="img-responsive img-hover" src="images/cascara4.jpg" alt="Cascara 4">
-                </a>
+                   <img class="img-responsive img-hover" id="myImg" src="images/cascara4.jpg" alt="Cascara 4">
             </div>
+             <!-- The Modal -->
+    <div id="myModal" class="modal">
+    
+      <!-- The Close Button -->
+      <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+    
+      <!-- Modal Content (The Image) -->
+      <img class="modal-content" id="img01">
+    
+      <!-- Modal Caption (Image Text) -->
+      <div id="caption"></div>
+    </div>
+    
             <div class="col-md-4 img-portfolio">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-hover" src="images/cascara5.jpg" alt="Cascara 5">
-                </a>
+                    <img class="img-responsive img-hover" id="myImg" src="images/cascara5.jpg" alt="Cascara 5">  
                 </h3>
             </div>
+             <!-- The Modal -->
+    <div id="myModal" class="modal">
+    
+      <!-- The Close Button -->
+      <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+    
+      <!-- Modal Content (The Image) -->
+      <img class="modal-content" id="img01">
+    
+      <!-- Modal Caption (Image Text) -->
+      <div id="caption"></div>
+    </div>
         </div>
         <!-- /.row -->
 
@@ -146,9 +179,7 @@ function MM_swapImage() { //v3.0
                 </a>
             </div>
         </div>  
-    
-    
-     
+
      </div>
      
      
@@ -196,6 +227,31 @@ function MM_swapImage() { //v3.0
         interval: 5000 //changes the speed
     })
     </script>
+    
+    <script>
+		// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    modalImg.alt = this.alt;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+	
 
 </body>
 
