@@ -110,46 +110,46 @@ function MM_swapImage() { //v3.0
             </div>
             
 <!-- Form begins -->            
- <form role="form">          
+ <form role="form" action="contact.php" method="post" >          
   
       <fieldset class="col-xs-4 form-group">
-        <label for="fname">First Name: *</label>
-        <input type="text" class="form-control" placeholder="First Name">
+        <label for="firstname" >First Name: *</label>
+        <input type="text" class="form-control" name="firstname" placeholder="First Name" required>
       </fieldset>
       
      <fieldset class="col-xs-4 form-group">
-        <label for="lname">Last Name: *</label>
-        <input type="text" class="form-control" placeholder="Last Name">
+        <label for="lastname">Last Name: *</label>
+        <input type="text" class="form-control" name="lastname" placeholder="Last Name" required>
       </fieldset>
               
       <fieldset class="col-xs-6 form-group">
-        <label for="email">Email: </label>
-        <input type="text" class="form-control" placeholder="youremail@email.com">
+        <label for="email">Email: *</label>
+        <input type="text" class="form-control" name="email" placeholder="youremail@email.com" required>
       </fieldset>
       
       <fieldset class="col-lg-8 form-group">
         <label for="phone">Contact Phone: * </label>
-        <input type="text" class="form-control" placeholder="(555) 555-5555">
+        <input type="text" class="form-control" name="phone" placeholder="(555) 555-5555" required>
       </fieldset>
       
       <fieldset class="col-lg-8 form-group">
         <label for="street">Street Address: </label>
-        <input type="text" class="form-control" placeholder="123 Your St.">
+        <input type="text" class="form-control" name="street" placeholder="123 Your St.">
       </fieldset>
       
       <fieldset class="col-lg-8 form-group">
         <label for="city">City:  </label>
-        <input type="text" class="form-control" placeholder="City">
+        <input type="text" class="form-control" name="city" placeholder="City">
       </fieldset>
       
       <fieldset class="col-lg-8 form-group">
         <label for="state">State/Province/Region: </label>
-        <input type="text" class="form-control" placeholder="State/Province/Region">
+        <input type="text" class="form-control" name="state" placeholder="State/Province/Region">
       </fieldset>
       
        <fieldset class="col-lg-8 form-group">
-        <label for="state">Please tell us about your current design needs: </label>
-        <textarea class="form-control" rows="5" id="comment"></textarea><br>
+        <label for="state">Please tell us about your current design needs: *</label>
+        <textarea class="form-control" name="comment" rows="5" id="comment" required></textarea><br>
         <button type="submit" class="btn btn-danger">Submit</button>
       </fieldset>
   
