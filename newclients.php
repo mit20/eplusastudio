@@ -8,9 +8,9 @@ if(isset($_SESSION["msg"])){
 
 //PDO Connection - MYSQL Database
 
-$user='root'; //This stores the DB name
-$pass='root'; //This stores the DB password
-$dbh = new PDO('mysql:host=localhost;dbname=contact_db;port=8889', $user, $pass); //Instantiates PDO
+$user='eacontactdb1'; //This stores the DB name
+$pass='Panama507!'; //This stores the DB password
+$dbh = new PDO('mysql:host=97.74.31.131;dbname=eacontactdb1;port=3306', $user, $pass); //Instantiates PDO
 
 if ($_SERVER['REQUEST_METHOD']=='POST') { //Checks to see if POST request method was made
 	if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') { //Checks to see if POST request method
 	}else{
 	$_SESSION['msg'] = "<p>Your information has been sent. Thank You!</p>";
 	
-	$dbh = new PDO('mysql:host=localhost;dbname=contact_db;port=8889', $user, $pass);
+	$dbh = new PDO('mysql:host=97.74.31.131;dbname=eacontactdb1;port=3306', $user, $pass);
 	
 	$firstname=$_POST['firstname']; //get POST values 
 	$lastname=$_POST['lastname'];
