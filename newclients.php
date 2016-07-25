@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') { //Checks to see if POST request method
     <link href="css/eplusa-custom.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Oswald|Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald%7CLato' rel='stylesheet' type='text/css'>
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -100,7 +100,7 @@ function MM_swapImage() { //v3.0
 <body onLoad="MM_preloadImages('images/facebook-rollover.png','images/pinterest-rollover.png','images/instagram-rollover.png')">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
     
         
@@ -176,7 +176,10 @@ function MM_swapImage() { //v3.0
                  <div class="col-md-4" id="icons">
                 <a href="https://www.facebook.com/eplusastudio" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('facebook','','images/facebook-rollover.png',1)"><img src="images/facebook.png" alt="Facebook Icon" width="32" height="32" id="facebook"></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="https://www.pinterest.com/eplusastudio/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('pinterest','','images/pinterest-rollover.png',1)"><img src="images/pinterest.png" alt="Pinterest Icon" width="32" height="32" id="pinterest"></a>&nbsp; &nbsp;&nbsp;&nbsp;
-        <a href="https://www.instagram.com/eplusastudio/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('instagram','','images/instagram-rollover.png',1)"><img src="images/instagram.png" alt="Instagram Icon" width="32" height="32" id="instagram"></a></footer>
+        <a href="https://www.instagram.com/eplusastudio/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('instagram','','images/instagram-rollover.png',1)"><img src="images/instagram.png" alt="Instagram Icon" width="32" height="32" id="instagram"></a></div>
+        
+        </div><!-- End of  row --> 
+    </footer> <!-- End of  Footer -->  
 
     </div>
     <!-- /.container -->
