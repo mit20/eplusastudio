@@ -50,8 +50,10 @@ if ($_SERVER['REQUEST_METHOD']=='POST') { //Checks to see if POST request method
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="E + A Studio Contact Form">
+    <meta name="keywords" content="Carolina Bosquez, Principal, E + A Studio, Interior Designer, Interior Decorator, Contact">
+    <meta name="author" content="Carolina Bosquez, Principal, E + A Studio">
 
     <title>E + A Studio | Contact</title>
     
@@ -168,6 +170,7 @@ function MM_swapImage() { //v3.0
         <!-- Marketing Icons Section -->
         <div class="row">
             <div class="col-lg-12">
+            <br>
                 <h1 class="page-header">
                   Complimentary Consultation Request
                 </h1>
@@ -235,9 +238,9 @@ function MM_swapImage() { //v3.0
                 </div>
                 
                  <div class="col-md-4" id="icons">
-                <a href="https://www.facebook.com/eplusastudio" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('facebook','','images/facebook-rollover.png',1)"><img src="images/facebook.png" alt="Facebook Icon" width="32" height="32" id="facebook"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="https://www.pinterest.com/eplusastudio/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('pinterest','','images/pinterest-rollover.png',1)"><img src="images/pinterest.png" alt="Pinterest Icon" width="32" height="32" id="pinterest"></a>&nbsp; &nbsp;&nbsp;&nbsp;
-        <a href="https://www.instagram.com/eplusastudio/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('instagram','','images/instagram-rollover.png',1)"><img src="images/instagram.png" alt="Instagram Icon" width="32" height="32" id="instagram"></a></div>
+                <a href="https://www.facebook.com/eplusastudio" target="_blank" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('facebook','','images/facebook-rollover.png',1)"><img src="images/facebook.png" alt="Facebook Icon" width="32" height="32" id="facebook"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.pinterest.com/eplusastudio/" target="_blank" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('pinterest','','images/pinterest-rollover.png',1)"><img src="images/pinterest.png" alt="Pinterest Icon" width="32" height="32" id="pinterest"></a>&nbsp; &nbsp;&nbsp;&nbsp;
+        <a href="https://www.instagram.com/eplusastudio/" target="_blank" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('instagram','','images/instagram-rollover.png',1)"><img src="images/instagram.png" alt="Instagram Icon" width="32" height="32" id="instagram"></a></div>
 
 		</div><!-- End of  row --> 
     </footer> <!-- End of  Footer -->  
