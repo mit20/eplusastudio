@@ -1,47 +1,9 @@
-<?php
-session_start();
-
-if(isset($_SESSION["msg"])){
-	echo $_SESSION['msg'];
-	unset($_SESSION["msg"]);
-	}
-
+<?php 
 //PDO Connection - MYSQL Database
-
 $user='eacontactdb1'; //This stores the DB name
 $pass='Panama507!'; //This stores the DB password
 $dbh = new PDO('mysql:host=97.74.31.131;dbname=eacontactdb1;port=3306', $user, $pass); //Instantiates PDO
 
-if ($_SERVER['REQUEST_METHOD']=='POST') { //Checks to see if POST request method was made
-	if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
-	{
-	echo "<p>The EMAIL you have entered is invalid.</p>";
-	}else{
-	$_SESSION['msg'] = "<p>Your information has been sent. Thank You!</p>";
-	
-	$dbh = new PDO('mysql:host=97.74.31.131;dbname=eacontactdb1;port=3306', $user, $pass);
-	
-	$firstname=$_POST['firstname']; //get POST values 
-	$lastname=$_POST['lastname'];
-	$email=$_POST['email'];
-	$phone=$_POST['phone']; 
-	$street=$_POST['street'];
-	$city=$_POST['city'];
-	$state=$_POST['state'];
-	$comment=$_POST['comment'];
-	$stmt=$dbh->prepare("INSERT INTO ea_clients (firstname, lastname, phone, email, street, city, state, comment) VALUES (:firstname, :lastname, :phone, :email, :street, :city, :state, :comment);"); //Inserts into ea_clients table of the CONTACT_DB database.
-	 
-	$stmt->bindParam(':firstname', $firstname); 
-	$stmt->bindParam(':lastname', $lastname); 
-	$stmt->bindParam(':email', $email); 
-	$stmt->bindParam(':phone', $phone); 
-	$stmt->bindParam(':street', $street); 
-	$stmt->bindParam(':city', $city); 
-	$stmt->bindParam(':state', $state); 
-	$stmt->bindParam(':comment', $comment); 
-	$stmt->execute();
-	}
-}
 ?>
 
 <!DOCTYPE html>

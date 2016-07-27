@@ -1,35 +1,47 @@
 <?php
-session_start();
-
-if(isset($_SESSION["msg"])){
-	echo $_SESSION['msg'];
-	unset($_SESSION["msg"]);
-	}
 
 //PDO Connection - MYSQL Database
-
 $user='eacontactdb1'; //This stores the DB name
 $pass='Panama507!'; //This stores the DB password
 $dbh = new PDO('mysql:host=97.74.31.131;dbname=eacontactdb1;port=3306', $user, $pass); //Instantiates PDO
 
-if ($_SERVER['REQUEST_METHOD']=='POST') { //Checks to see if POST request method was made
-	if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
-	{
-	echo "<p>The EMAIL you have entered is invalid.</p>";
-	}else{
-	$_SESSION['msg'] = "<p>Your information has been sent. Thank You!</p>";
+	if (empty ($_POST) === false) {  //Checks $_POST is not empty
+		$errors = array(); //variable for empty array 
+		
+		$firstname	=	$_POST['firstname']; //get POST values 
+		$lastname	=	$_POST['lastname'];
+		$email			=	$_POST['email'];
+		$phone		=	$_POST['phone']; 
+		$street		=	$_POST['street'];
+		$city			=	$_POST['city'];
+		$state			=	$_POST['state'];
+		$comment	=	$_POST['comment'];
+
+if (isset($_GET['newclients.php']) === true) { //Checks to see if newclients.php is set.
+	print('OK');
+} else {
+		
+if (empty ($firstname) === true || empty ($lastname) === true || empty ($email) === true || empty ($comment) === true) { //Checks to see if these values are empty
+	$errors[] = " <p style='color:red;'>* First name, last name, email and message are required.</p> "; //Error message that will be displayed the page.
+} else {
+	if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) { //Validates email
+		$errors[] = " <p style='color:red;'>* Please enter a valid email address.</p> "; //Error message that will be displayed the page.
+		}
+		if (ctype_alpha($firstname) === false) { //Checks to see if firstname contains letters only.
+			$errors[] =  " <p style='color:red;'>*Your name can only contain letters. Please check the spelling of your first and/or last name."; //Error message that will be displayed the page.
+			}
+			if (ctype_alpha($lastname) === false) { //Checks to see if lastname contains letters only.
+			$errors[] = " <p style='color:red;'>*Your name can only contain letters. Please check the spelling of your first and/or last name.";//Error message that will be displayed the page.
+			}
+
+			if (empty($errors) === true) { //Check if for errors if everything is ok, redirects to newclients.php
+				header('Location: newclients.php');
+			}
+	}	
+}
 	
 	$dbh = new PDO('mysql:host=97.74.31.131;dbname=eacontactdb1;port=3306', $user, $pass);
-	
-	$firstname=$_POST['firstname']; //get POST values 
-	$lastname=$_POST['lastname'];
-	$email=$_POST['email'];
-	$phone=$_POST['phone']; 
-	$street=$_POST['street'];
-	$city=$_POST['city'];
-	$state=$_POST['state'];
-	$comment=$_POST['comment'];
-	$stmt=$dbh->prepare("INSERT INTO ea_clients (firstname, lastname, phone, email, street, city, state, comment)  VALUES (:firstname, :lastname, :phone, :email, :street, :city, :state, :comment);"); //Inserts into ea_clients table of the CONTACT_DB database.
+	$stmt=$dbh->prepare("INSERT INTO ea_clients (firstname, lastname, phone, email, street, city, state, comment) VALUES (:firstname, :lastname, :phone, :email, :street, :city, :state, :comment);"); //Inserts into ea_clients table of the CONTACT_DB database.
 	 
 	$stmt->bindParam(':firstname', $firstname); 
 	$stmt->bindParam(':lastname', $lastname); 
@@ -41,8 +53,8 @@ if ($_SERVER['REQUEST_METHOD']=='POST') { //Checks to see if POST request method
 	$stmt->bindParam(':comment', $comment); 
 	$stmt->execute();
 	}
-}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en"><head>
@@ -177,56 +189,67 @@ function MM_swapImage() { //v3.0
                 <h3>Please enter your information below.</h3>
             </div>
             
-<!-- Form begins -->            
- <form action="newclients.php" method="post" >          
+<!-- Form begins -->   
+
+<?php 
+if (empty ($errors) === false) { 
+	echo '<ul>';
+		foreach ($errors as $error) {
+			echo '<li>', $error, '</li>';
+			}
+	echo '</ul>';
+}
+?>
+         
+ <form method="post" action="" >          
   
       <fieldset class="col-xs-4 form-group">
         <label>First Name: *</label>
-        <input type="text" class="form-control" name="firstname" placeholder="First Name" required>
+<input type="text" class="form-control" name="firstname" placeholder="First Name" <?php if (isset($_POST['firstname']) === true)  {echo 'value="', strip_tags($_POST['firstname']),'"'; }?>>
       </fieldset>
       
      <fieldset class="col-xs-4 form-group">
         <label>Last Name: *</label>
-        <input type="text" class="form-control" name="lastname" placeholder="Last Name" required>
+        <input type="text" class="form-control" name="lastname" placeholder="Last Name" <?php if (isset($_POST['lastname']) === true)  {echo 'value="', strip_tags($_POST['lastname']),'"'; }?>>
       </fieldset>
               
       <fieldset class="col-xs-6 form-group">
         <label>Email: *</label>
-        <input type="text" class="form-control" name="email" placeholder="youremail@email.com" required>
+        <input type="text" class="form-control" name="email" placeholder="youremail@email.com" <?php if (isset($_POST['email']) === true)  {echo 'value="', strip_tags($_POST['email']),'"'; }?>>
       </fieldset>
       
       <fieldset class="col-lg-8 form-group">
-        <label>Contact Phone: * </label>
-        <input type="text" class="form-control" name="phone" placeholder="(555) 555-5555" required>
+        <label>Contact Phone:  </label>
+        <input type="text" class="form-control" name="phone" placeholder="(555) 555-5555" <?php if (isset($_POST['phone']) === true)  {echo 'value="', strip_tags($_POST['phone']),'"'; }?>>
       </fieldset>
       
       <fieldset class="col-lg-8 form-group">
         <label>Street Address: </label>
-        <input type="text" class="form-control" name="street" placeholder="123 Your St.">
+        <input type="text" class="form-control" name="street" placeholder="123 Your St." <?php if (isset($_POST['street']) === true)  {echo 'value="', strip_tags($_POST['street']),'"'; }?>>
       </fieldset>
       
       <fieldset class="col-lg-8 form-group">
         <label>City:  </label>
-        <input type="text" class="form-control" name="city" placeholder="City">
+        <input type="text" class="form-control" name="city" placeholder="City" <?php if (isset($_POST['city']) === true)  {echo 'value="', strip_tags($_POST['city']),'"'; }?>>
       </fieldset>
       
       <fieldset class="col-lg-8 form-group">
         <label>State/Province/Region: </label>
-        <input type="text" class="form-control" name="state" placeholder="State/Province/Region">
+        <input type="text" class="form-control" name="state" placeholder="State/Province/Region" <?php if (isset($_POST['state']) === true)  {echo 'value="', strip_tags($_POST['state']),'"'; }?>>
       </fieldset>
       
        <fieldset class="col-lg-8 form-group">
         <label>Please tell us about your current design needs: *</label>
-        <textarea class="form-control" name="comment" rows="5" id="comment" required></textarea><br>
+        <textarea class="form-control" name="comment" rows="5" id="comment"><?php if (isset($_POST['comment']) === true)  {echo strip_tags($_POST['comment']),''; }?></textarea><br>
         <button type="submit" class="btn btn-danger">Submit</button>
       </fieldset>
   
   </form>
   <!-- End of form --> 
+
         </div>
         <!-- /.row -->
 
-        
         <hr>
 
         <!-- Footer -->
@@ -262,7 +285,7 @@ function MM_swapImage() { //v3.0
     
     <!-- Script for USERSNAP -->
  
-    <script type="text/javascript">
+<script type="text/javascript">
 (function() {
 var s = document.createElement("script");
 s.type = "text/javascript";
