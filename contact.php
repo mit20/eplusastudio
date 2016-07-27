@@ -28,10 +28,14 @@ if (empty ($firstname) === true || empty ($lastname) === true || empty ($email) 
 		$errors[] = " <p style='color:red;'>* Please enter a valid email address.</p> "; //Error message that will be displayed the page.
 		}
 		if (ctype_alpha($firstname) === false) { //Checks to see if firstname contains letters only.
-			$errors[] =  " <p style='color:red;'>*Your name can only contain letters. Please check the spelling of your first and/or last name."; //Error message that will be displayed the page.
+			$errors[] =  " <p style='color:red;'>*Your name may only contain letters. Please check the spelling of your first and/or last name."; //Error message that will be displayed the page.
 			}
 			if (ctype_alpha($lastname) === false) { //Checks to see if lastname contains letters only.
-			$errors[] = " <p style='color:red;'>*Your name can only contain letters. Please check the spelling of your first and/or last name.";//Error message that will be displayed the page.
+			$errors[] = " <p style='color:red;'>*Your name may only contain letters. Please check the spelling of your first and/or last name.";//Error message that will be displayed the page.
+			}
+			
+			if (ctype_alpha($state) === false) { //Checks to see if lastname contains letters only.
+			$errors[] = " <p style='color:red;'>*State/Province/Region may only contain letters. Please correct.";//Error message that will be displayed the page.
 			}
 
 			if (empty($errors) === true) { //Check if for errors if everything is ok, redirects to newclients.php
@@ -219,8 +223,8 @@ if (empty ($errors) === false) {
       </fieldset>
       
       <fieldset class="col-lg-8 form-group">
-        <label>Contact Phone:  </label>
-        <input type="text" class="form-control" name="phone" placeholder="(555) 555-5555" <?php if (isset($_POST['phone']) === true)  {echo 'value="', strip_tags($_POST['phone']),'"'; }?>>
+        <label>Contact Phone: (numbers only) </label>
+        <input type="text" class="form-control" name="phone" placeholder="555 555 5555 " <?php if (isset($_POST['phone']) === true)  {echo 'value="', strip_tags($_POST['phone']),'"'; }?>>
       </fieldset>
       
       <fieldset class="col-lg-8 form-group">
